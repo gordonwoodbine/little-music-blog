@@ -4,6 +4,7 @@ import { client } from './client';
 import Header from './components/Header';
 import Posts from './components/Posts';
 import Pagination from './components/Pagination';
+import Footer from './components/Footer';
 
 const App = () => {
   const [articles, setArticles] = useState([]);
@@ -26,7 +27,6 @@ const App = () => {
   // Change Page
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
-    console.log(`Page No: ${pageNumber}`)
   }
  
     return (
@@ -36,9 +36,10 @@ const App = () => {
           <main>
             <div className="wrapper">
               <Posts posts={currentPosts} />
-              < Pagination postsPerPage={postsPerPage} totalPosts={articles.length} paginate={paginate} />
+              < Pagination postsPerPage={postsPerPage} totalPosts={articles.length} paginate={paginate} currentPage={currentPage} />
             </div>
           </main>
+          <Footer />
         </div>
       </div>
     );
