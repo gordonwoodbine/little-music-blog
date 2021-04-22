@@ -9,8 +9,7 @@
 body {
   color: #455;
   line-height: 1.5;
-  font-family: 'Muli', sans-serif;
-  background-color: blueviolet;
+  font-family: 'Poppins', sans-serif;
   background-image: url('https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
   background-repeat: no-repeat;
   background-size: cover;
@@ -25,12 +24,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-weight: 800;
-}
-
-ul,
-ol {
-  padding-left: 40px;
+  font-weight: 700;
 }
 
 h1 {
@@ -49,17 +43,26 @@ h3 {
   min-height: 100vh;
 }
 
-header {
+.site-header {
   background: #1b93d7;
   text-align: center;
   color: #fff;
 }
 
-header .wrapper {
+.site-header .wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+.site-header__h1 {
+  margin: 2rem 0;
+}
+
+.site-header__subtitle {
+  margin: 0 0 2rem 0;
 }
 
 .wrapper {
@@ -67,12 +70,6 @@ header .wrapper {
   max-width: 900px;
   padding: 0 10px;
   margin: auto;
-}
-
-.logo {
-  line-height: 60px;
-  font-size: 27px;
-  font-weight: 600;
 }
 
 main .wrapper {
@@ -102,7 +99,8 @@ main .wrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
   height: 0;
-  margin: 2rem 0;
+  margin: 2rem auto;
+  width: 90%;
 }
 .videoWrapper iframe {
   position: absolute;
@@ -116,4 +114,34 @@ main .wrapper {
   color: #1b93d7;
   font-weight: bold;
   font-size: 1.2rem;
+}
+
+.post-date {
+  color: #e43b48;
+  border-top: 1px solid;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  text-align: right;
+}
+
+/* Pagination */
+
+.pagination {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+
+.page-item {
+  display: inline;
+}
+
+.page-link {
+  padding: 8px 16px;
+  background-color: #fff;
+  border: 1px solid #333;
+  font-family: monospace;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: #455;
 }

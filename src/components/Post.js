@@ -2,9 +2,11 @@ import React from 'react';
 import marked from 'marked';
 
 const Post = ({ article }) => {
-  const { title, artist, content, videoEmbed } = article.fields;
+  const { title, artist, content, videoEmbed, datePosted } = article.fields;
   const postBody = marked(content);
   const video = marked(videoEmbed);
+  const date = formatDate(datePosted);
+  console.log(datePosted);
   
   return (
     <div className="post">
@@ -12,8 +14,13 @@ const Post = ({ article }) => {
       <p className="artist">By {artist} </p>
         <div className="videoWrapper" dangerouslySetInnerHTML={{ __html: video }} />
       <section dangerouslySetInnerHTML={{ __html: postBody }} />
+      <p className="post-date">Posted on <span>{date}</span></p>
     </div>
   )
+}
+
+function formatDate(date) {
+  return date.split('-').reverse().join('/');
 }
 
 export default Post;

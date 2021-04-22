@@ -1,41 +1,47 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { client } from './client';
-import Posts from './components/Posts'
+import Header from './components/Header';
+import Posts from './components/Posts';
+import Pagination from './components/Pagination';
 
-class App extends React.Component {
-  state = {
-    articles: []
-  }
+const App = () => {
+  const [articles, setArticles] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(5);
 
-  componentDidMount() {
+  useEffect(() => {
     client.getEntries()
       .then((res) => {
-        this.setState({
-          articles: res.items
-        })
+        setArticles(res.items);
       })
       .catch(console.error)
-  }
+  }, []);
 
-  render() {
+  // Get Current Posts
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = articles.slice(indexOfFirstPost, indexOfLastPost);
+
+  // Change Page
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    console.log(`Page No: ${pageNumber}`)
+  }
+ 
     return (
       <div className="App">
         <div className="container">
-          <header>
-            <div className="wrapper">
-              <h1>Hey, Listen to This!</h1>
-            </div>
-          </header>
+          <Header />
           <main>
             <div className="wrapper">
-              <Posts posts={this.state.articles} />
+              <Posts posts={currentPosts} />
+              < Pagination postsPerPage={postsPerPage} totalPosts={articles.length} paginate={paginate} />
             </div>
           </main>
         </div>
       </div>
     );
-  }
 }
 
 export default App;
