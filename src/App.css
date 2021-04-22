@@ -144,4 +144,5 @@ main .wrapper {
   font-size: 1.4rem;
   text-decoration: none;
   color: #455;
+  cursor: pointer;
 }
