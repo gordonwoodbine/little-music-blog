@@ -1,38 +1,119 @@
-.App {
-  text-align: center;
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  color: #455;
+  line-height: 1.5;
+  font-family: 'Muli', sans-serif;
+  background-color: blueviolet;
+  background-image: url('https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 0;
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 800;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+ul,
+ol {
+  padding-left: 40px;
+}
+
+h1 {
+  font-size: 1.9em;
+}
+h2 {
+  font-size: 1.7em;
+}
+h3 {
+  font-size: 1.5em;
+}
+
+.container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  min-height: 100vh;
+}
+
+header {
+  background: #1b93d7;
+  text-align: center;
+  color: #fff;
+}
+
+header .wrapper {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.wrapper {
+  width: 100%;
+  max-width: 900px;
+  padding: 0 10px;
+  margin: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo {
+  line-height: 60px;
+  font-size: 27px;
+  font-weight: 600;
+}
+
+main .wrapper {
+  padding: 50px 15px;
+}
+
+.post {
+  padding: 20px;
+  margin-bottom: 50px;
+  background-color: whitesmoke;
+  border-radius: 15px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5), 0 5px 8px rgba(0, 0, 0, 0.5);
+}
+
+.post img {
+  display: block;
+  width: 100%;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 1.8em;
+  color: #e43b48;
+}
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  margin: 2rem 0;
+}
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.artist {
+  color: #1b93d7;
+  font-weight: bold;
+  font-size: 1.2rem;
 }

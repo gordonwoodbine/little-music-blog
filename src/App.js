@@ -1,25 +1,41 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import { client } from './client';
+import Posts from './components/Posts'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    articles: []
+  }
+
+  componentDidMount() {
+    client.getEntries()
+      .then((res) => {
+        this.setState({
+          articles: res.items
+        })
+      })
+      .catch(console.error)
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <div className="container">
+          <header>
+            <div className="wrapper">
+              <h1>Hey, Listen to This!</h1>
+            </div>
+          </header>
+          <main>
+            <div className="wrapper">
+              <Posts posts={this.state.articles} />
+            </div>
+          </main>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
