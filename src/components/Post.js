@@ -1,12 +1,13 @@
 import React from 'react';
 import marked from 'marked';
 
+// marked converts the markdown we get from Contentful into HTML
+
 const Post = ({ article }) => {
   const { title, artist, content, videoEmbed, datePosted } = article.fields;
   const postBody = marked(content);
   const video = marked(videoEmbed);
   const date = formatDate(datePosted);
-  console.log(datePosted);
   
   return (
     <div className="post">
@@ -19,6 +20,7 @@ const Post = ({ article }) => {
   )
 }
 
+// Contentful returns the date as 'yyyy-mm-dd' so reverse it.
 function formatDate(date) {
   return date.split('-').reverse().join('/');
 }

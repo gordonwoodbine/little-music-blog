@@ -16,15 +16,15 @@ const App = () => {
       .then((res) => {
         setArticles(res.items);
       })
-      .catch(console.error)
+      .catch(console.error);
   }, []);
 
-  // Get Current Posts
+  // Pagination - Get Current Posts
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = articles.slice(indexOfFirstPost, indexOfLastPost);
 
-  // Change Page
+  // Pagination - Change Page
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   }

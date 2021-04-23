@@ -1,3 +1,7 @@
+/*****************************
+*  General Styles and Reset  *
+******************************/
+
 :root {
   --site-blue: #1b93d7;
 }
@@ -47,6 +51,21 @@ h3 {
   min-height: 100vh;
 }
 
+.wrapper {
+  width: 100%;
+  max-width: 900px;
+  padding: 0 10px;
+  margin: auto;
+}
+
+main .wrapper {
+  padding: 50px 15px;
+}
+
+/*******************
+*  Heading Styles  *
+********************/
+
 .site-header {
   background: #1b93d7;
   text-align: center;
@@ -69,16 +88,9 @@ h3 {
   margin: 0 0 2rem 0;
 }
 
-.wrapper {
-  width: 100%;
-  max-width: 900px;
-  padding: 0 10px;
-  margin: auto;
-}
-
-main .wrapper {
-  padding: 50px 15px;
-}
+/****************
+*  Post Styles  *
+*****************/
 
 .post {
   padding: 20px;
@@ -95,23 +107,8 @@ main .wrapper {
 
 .title {
   text-transform: uppercase;
-  font-size: 1.8em;
+  font-size: 1.8rem;
   color: #e43b48;
-}
-
-.videoWrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  margin: 2rem auto;
-  width: 90%;
-}
-.videoWrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .artist {
@@ -128,7 +125,28 @@ main .wrapper {
   text-align: right;
 }
 
-/* Footer */
+/******************************************
+*  CSS to make the video behave properly  *
+*******************************************/
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  margin: 2rem auto;
+  width: 90%;
+}
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/******************
+*  Footer Styles  *
+*******************/
 
 .site-footer {
   background: #333;
@@ -153,7 +171,9 @@ main .wrapper {
   color: #fff;
 }
 
-/* Pagination */
+/***************
+*  Pagination  *
+****************/
 
 .pagination {
   list-style-type: none;
